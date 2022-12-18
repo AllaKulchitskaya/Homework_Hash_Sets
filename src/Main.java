@@ -1,5 +1,7 @@
 import product.Product;
 import product.ProductList;
+import product.Recipe;
+import product.RecipeList;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -30,7 +32,16 @@ public class Main {
         System.out.println(Arrays.toString(productList.getProductList().toArray()));
 
         productList.removeFood(oranges);
-        productList.addFood(carrot);
+
+        Recipe roast = new Recipe(productList, 569.6, "жаркое" );
+        Recipe pureeAndChicken = new Recipe(productList, 654.3, "пюре с курицей");
+
+        Set<Recipe> recipeSet = new HashSet<>();
+        RecipeList recipeList = new RecipeList(recipeSet);
+        recipeList.addRecipe(roast);
+        recipeList.addRecipe(pureeAndChicken);
+
+        System.out.println(Arrays.toString(recipeList.getRecipeList().toArray()));
 
     }
 }
